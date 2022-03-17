@@ -3,9 +3,16 @@
 
 ## create dylib
 g++ -shared layer.o conflict.o -o libconflict.so
+
+
 g++ -Wl,--version-script=export.txt -shared layer.o conflict.o -o libconflict.so
+
+
 ## hidden
+
+
 g++ -fvisibility=hidden -c ../conflict.cc  -o conflict.o
+
 
 hidde之后，符号类型为t
 
@@ -18,6 +25,8 @@ hidde之后，符号类型为t
 
 
 gcc -Wl, --version-script export.txt -shared layer.o conflict.o -o libconflict.so
+
+
 clang 不支持 --version-script
 
 
